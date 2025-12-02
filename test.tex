@@ -1,0 +1,220 @@
+% vorlage: https://poolmgr.informatik.uni-freiburg.de/kurs/LaTeX-Vorlagen/report-vorlage-medium.html
+\documentclass[a4paper,12pt,ngerman]{report}
+
+% Sprache, Umlaute und Silbentrennung für deutsche Dokumente
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Serifenfreie Schriftart für den Fließtext
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% 1.5-facher Zeilenabstand
+\usepackage{setspace}
+\onehalfspacing
+
+% Seitengeometrie für DIN A4 mit Rändern
+\usepackage[a4paper, margin=2.5cm]{geometry}
+
+% Farbige Textelemente und Hervorhebungen
+\usepackage{xcolor}
+
+% Grafiken und Bilder
+\usepackage{graphicx}
+
+% Mathematikpakete für Formeln und Symbole
+\usepackage{amsmath, amssymb}
+
+% Paket für Literaturverweise
+\usepackage[numbers]{natbib}
+
+% Kopf- und Fußzeilengestaltung
+\usepackage{fancyhdr}
+
+% Hyperlinks und URLs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    pdftitle={Beispielbericht in LaTeX},
+    pdfauthor={Max Mustermann},
+    pdfsubject={Ein Beispielbericht mit der LaTeX-Dokumentenklasse report},
+    pdfkeywords={LaTeX, report, Vorlage, Beispielbericht}
+}
+
+% Intelligente Verweise
+\usepackage{cleveref}
+
+\title{Ein ausführlicher Beispielbericht in LaTeX}
+\author{Max Mustermann}
+\date{\today}
+
+\begin{document}
+
+% Titelseite
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    {\Huge \textbf{Ein ausführlicher Beispielbericht in LaTeX}}
+    
+    \vspace{1.5cm}
+    
+    {\Large Max Mustermann}
+    
+    \vfill
+    
+    Ein Bericht zur Demonstration der `report`-Dokumentenklasse in LaTeX.
+    
+    \vfill
+    
+    {\large \today}
+    
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+% Kopf- und Fußzeilen
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Beispielbericht}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+\pagenumbering{arabic}
+
+\chapter{Einleitung}
+Diese Vorlage zeigt den Aufbau eines Berichts in der LaTeX-Dokumentenklasse 
+`report`. Der Stil `report` ist besonders geeignet für umfangreiche Dokumente, 
+da er eine Kapitelstruktur unterstützt. Die Vorlage nutzt verschiedene 
+LaTeX-Pakete, um das Layout zu verbessern und hilfreiche Funktionen für 
+wissenschaftliche Arbeiten bereitzustellen.
+
+\chapter{Grundlagen}
+In diesem Kapitel werden grundlegende Strukturen und nützliche LaTeX-Befehle 
+vorgestellt, die in formellen Dokumenten häufig benötigt werden.
+
+\section{Mathematische Ausdrücke}
+Die Pakete `amsmath` und `amssymb` bieten eine Vielzahl von mathematischen 
+Symbolen und Formeln. Hier einige Beispiele für mathematische Ausdrücke:
+
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+\[
+\int_{a}^{b} f(x) \, dx = F(b) - F(a)
+\]
+
+\subsection{Ein Beispiel für eine Formel mit Summenzeichen}
+\[
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\]
+
+\section{Tabellen und Abbildungen}
+Tabellen und Abbildungen sind wichtige Elemente in wissenschaftlichen Arbeiten,
+ um Daten und Ergebnisse anschaulich darzustellen.
+
+\subsection{Tabellen}
+Hier ist ein Beispiel für eine einfache Tabelle:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        A & B & C \\
+        \hline
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        \hline
+    \end{tabular}
+    \caption{Beispieltabelle}
+    \label{tab:beispiel}
+\end{table}
+
+\subsection{Abbildungen}
+Mit dem Paket `graphicx` können Bilder einfach eingefügt werden. Das folgende 
+Beispiel zeigt, wie man eine Abbildung mit Bildunterschrift und Label erstellt:
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image} 
+    % Ersetze "example-image" mit einem tatsächlichen Dateinamen
+    \caption{Eine Beispielabbildung}
+    \label{fig:beispiel}
+\end{figure}
+
+\section{Verweise und Hyperlinks}
+Dank `cleveref` können Verweise auf nummerierte Elemente intelligent gesetzt 
+werden. Ein Verweis auf die Tabelle \cref{tab:beispiel} und die 
+Abbildung \cref{fig:beispiel} erfolgt so automatisch korrekt.
+
+Für Hyperlinks und URLs, die durch `hyperref` und `url` unterstützt werden, 
+können Sie beispielsweise \href{https://www.latex-project.org/}{LaTeX Projektseite}
+ aufrufen oder eine URL ohne Verlinkung darstellen: \url{https://www.latex-project.org/}.
+
+\section{Listen und Aufzählungen}
+Listen sind nützlich, um Punkte in einer übersichtlichen Form darzustellen. 
+Die häufig verwendeten Listentypen sind:
+
+\begin{itemize}
+    \item Ein Punkt
+    \item Noch ein Punkt
+\end{itemize}
+
+\begin{enumerate}
+    \item Schritt 1
+    \item Schritt 2
+\end{enumerate}
+
+\begin{description}
+    \item[Begriff 1:] Eine kurze Erklärung des Begriffs.
+    \item[Begriff 2:] Weitere Erklärung.
+\end{description}
+
+\chapter{Schlussfolgerungen}
+Die Vorlage demonstriert, wie man ein formales Dokument in LaTeX aufbauen kann. 
+Die Kombination der genutzten Pakete ermöglicht eine flexible und professionelle
+ Gestaltung, die für umfangreiche Berichte und wissenschaftliche Arbeiten ideal ist.
+
+\newpage
+
+% Literaturverzeichnis
+\begin{thebibliography}{9}
+    \bibitem{latexcompanion} 
+    Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+    \textit{The \LaTeX\ Companion}. 
+    Addison-Wesley, 1993.
+    
+    \bibitem{einstein} 
+    Albert Einstein.
+    \textit{Zur Elektrodynamik bewegter Körper}. (German) 
+    [\textit{On the electrodynamics of moving bodies}]. 
+    Annalen der Physik, 322(10):891–921, 1905.
+    
+    \bibitem{knuthwebsite} 
+    Knuth: Computers and Typesetting,
+    \url{http://www-cs-faculty.stanford.edu/~uno/abcde.html}
+\end{thebibliography}
+
+\appendix
+\chapter{Anhang}
+Im Anhang können zusätzliche Materialien, wie lange Tabellen, detaillierte 
+Berechnungen oder weitere Diagramme, eingefügt werden. Der Anhang ist besonders 
+hilfreich, um den Hauptteil der Arbeit übersichtlich zu halten.
+
+\section{Erweiterte mathematische Darstellung}
+Hier ist ein Beispiel für eine mehrzeilige Gleichung:
+\begin{align*}
+    a + b &= c \\
+    a - b &= d
+\end{align*}
+
+\end{document}
